@@ -3,15 +3,16 @@
 #include <cmath>
 #include <ctime>
 
+using namespace std;
 
 int main(){
 
-    std::string questions[] =  {"1. What year was C++ created?: ",
+    string questions[] =  {"1. What year was C++ created?: ",
                                 "2. Who created C++?: ",
                                 "3. What is the predecessor of C++?: ",
                                 "4: Is the Earth flat?: "};
 
-    std::string options[][4] =  {{"A. 1969", "B. 1975", "C. 1985", "D. 1989"},
+    string options[][4] =  {{"A. 1969", "B. 1975", "C. 1985", "D. 1989"},
                                 {"A. Guldo van Rossum", "B. Bjarne Stroustrup", "C. John Carmack", "D. Tony Tony Chopper"},
                                 {"A. C", "B. C+", "C. C--", "D. B++"},
                                 {"A. Yes", "B. No", "C. Sometimes", "D. Every other day"}};
@@ -22,38 +23,38 @@ int main(){
     //char to hold the player/user guess
     char guess;
     //int to hold the player/user score
-    int score;
+    int score = 0;
 
     for(int i = 0; i < size; i++){
         
-        std::cout << "***************************************************************" << '\n';
-        std::cout << questions[i] << '\n';
-        std::cout << "***************************************************************" << '\n';
+        cout << "***************************************************************" << '\n';
+        cout << questions[i] << '\n';
+        cout << "***************************************************************" << '\n';
 
         for(int j = 0; j < sizeof(options[i])/sizeof(options[i][0]); j++){
-            std::cout << options[i][j] << '\n';
+            cout << options[i][j] << '\n';
         }
 
-        std::cin >> guess;
+        cin >> guess;
         guess = toupper(guess);
 
         if(guess == answerKey[i]){
 
-            std::cout << "CORRECT!!!\n";
-            score++;
+            cout << "CORRECT!!!\n";
+            score = score + 1;
         }
         else{
-            std::cout << "WRONG!!!\n";
-            std::cout << "Answer: " << answerKey[i] << '\n';
+            cout << "WRONG!!!\n";
+            cout << "Answer: " << answerKey[i] << '\n';
         }
 
     }
-    std::cout << "***************************************************************" << '\n';
-    std::cout << "*                           RESULTS                           *\n";
-    std::cout << "***************************************************************" << '\n';
-    std::cout << "Correct Guesses: " << score << '\n';
-    std::cout << "Number of Questions: " << size << '\n';
-    std::cout << "Score: " << (score/(double) size)*100 << '%' <<'\n';
+    cout << "***************************************************************" << '\n';
+    cout << "*                           RESULTS                           *\n";
+    cout << "***************************************************************" << '\n';
+    cout << "Correct Guesses: " << score << '\n';
+    cout << "Number of Questions: " << size << '\n';
+    cout << "Score: " << (score/(double) size)*100 << '%' <<'\n';
 
     system("pause");
 
